@@ -1,0 +1,24 @@
+<html> 
+   <head> 
+      <script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'hello.js') }}" >
+      </script> 
+   </head> 
+   <body style="background-color:gray;"> 
+      {% extends "base.html" %}
+      {% block content %}
+      <h3>This is part of index.html</h3>
+      <br>
+      <input type = "button" onclick = "sayHello()" value = "Say Hello to {{user}}" /> 
+      <br><br><br><br>
+      <p>{{my_string}}</p>
+      <p>Looping through the list:</p>
+      <ul>
+         {% for n in my_list %}
+         <li>{{n}}</li>
+         {% endfor %}
+      </ul>
+      {% endblock %}
+
+   </body> 
+</html> 
