@@ -1,0 +1,42 @@
+<html>
+   <body>
+      <form action = "{{url_for('insert')}}" method = "POST">
+        <a href="{{url_for('results')}}">Click to see existing entries</a><br>
+        <a href="{{url_for('delete')}}">Delete some elements</a><br>
+        <a href="{{url_for('edit')}}">Edit some entries</a><br>
+        <p><h3>Enter username</h3></p>
+        <p><input type = 'text' name = 'name'/></p>
+        <p><h4>Select your favourite colour: </p>
+            <select name="colour" id="colour">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+            </select>
+            <br><br>
+        <p>Are you enjoying the Flask back-end course by Synergy-Community?</p>
+            <select name="opinion" id="opinion">
+                <option value="yes">YES!</option>
+                <option value="kind-of">Kind-of</option>
+                <option value="no">No</option>
+            </select>
+        <p><input type = 'submit' value = 'Edit'/></p>
+      </form>
+      <table border=5 style="float:right;">  
+        <thead>  
+            <td>Name</td>  
+            <td>Colour</td>  
+            <td>Opinion</td>  
+        </thead>  
+          
+        {% for row in all_rows %}   
+            <tr>  
+                <td>{{row[0]}}</td>  
+                <td>{{row[1]}}</td>  
+                <td>{{row[2]}}</td>  
+            </tr>  
+        {% endfor %}
+    </table>  
+    <br><br>  
+   </body>
+</html>
