@@ -1,0 +1,84 @@
+<html>
+    <body>
+        <a href="{{url_for('index')}}">Home</a><br>
+        <a href="{{url_for('insert')}}">Add new elements</a><br>
+        <a href="{{url_for('edit')}}">Edit some entries</a><br>
+
+        <form action="{{url_for('delete')}}" method="POST">
+            <label for="name">Entry to Delete: </label><br>
+            <input type="text" name="name" id="name">
+            <input type = 'submit' value = 'Delete'/>
+        </form>
+        <table border=5 style="float:right;">  
+            <thead>  
+                <td>Name</td>  
+                <td>Colour</td>  
+                <td>Opinion</td>  
+            </thead>  
+              
+            {% for row in all_rows %}   
+                <tr>  
+                    <td>{{row[0]}}</td>  
+                    <td>{{row[1]}}</td>  
+                    <td>{{row[2]}}</td>  
+                </tr>  
+            {% endfor %}
+        </table>  
+        <br><br>  
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script>
+            function getCheckedBoxes(chkboxName) {
+                var checkboxes = document.getElementsById(chkboxName);
+                var checkboxesChecked = [];
+                // loop over them all
+                for (var i=0; i<checkboxes.length; i++) {
+                   // And stick the checked ones onto an array...
+                   if (checkboxes[i].checked) {
+                      checkboxesChecked.push(checkboxes[i]);
+                   }
+                }
+                // Return the array if it is non-empty, or null
+                return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+              }
+              
+              // Call as
+            var checkedBoxes = getCheckedBoxes("checkbox");
+        </script>
+        <form action="{{url_for('delete')}}", method="POST">
+            <table border=5>  
+                <thead>  
+                    <td>Name</td>  
+                    <td>Colour</td>  
+                    <td>Opinion</td>  
+                </thead>  
+                  
+                {% for row in all_rows %}   
+                    <tr>  
+                        <td><input type="checkbox" name="{{row[0]}}" id="checkbox">{{row[0]}}</td>  
+                        <td name="{{row[1]}}" id="{{row[1]}}">{{row[1]}}</td>  
+                        <td name="{{row[2]}}" id="{{row[2]}}">{{row[2]}}</td>  
+                    </tr>  
+                {% endfor %}
+            </table>  
+            <br><br>  
+            <input type="hidden" value= checkedBoxes name="hidden">
+            <input type = 'submit' value = 'Delete'/>
+        </form>     -->
